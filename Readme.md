@@ -1,3 +1,4 @@
 # Node.js basics
 
-## !!! Please don't submit Pull Requests to this repository !!!
+This is the fork to complete this assignment:  
+https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/nodejs-basics/assignment.md
