@@ -1,13 +1,21 @@
 import fs from 'fs';
 import { mkdir, readdir, copyFile } from 'fs/promises';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const copy = async () => {
-  if (!fs.existsSync('./files')) {
+  const sourcePath = path.resolve(__dirname, 'files');
+  const destinationPath = path.resolve(__dirname, 'files_copy');
+
+  if (!fs.existsSync(sourcePath)) {
     throw new Error('FS operation failed - /files not exists ');
-  } else if (fs.existsSync('./files_copy')) {
+  } else if (fs.existsSync(destinationPath)) {
     throw new Error('FS operation failed - /files_copy was already created');
   } else {
-    copyFiles('./files', './files_copy');
+    copyFiles(sourcePath, destinationPath);
   }
 };
 
